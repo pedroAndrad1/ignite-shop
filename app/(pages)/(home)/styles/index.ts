@@ -3,10 +3,10 @@ import { styled } from '@/app/styles/stitches.config'
 export const HomeContainer = styled('main', {
   display: 'flex',
   alignItems: 'center',
-  gap: '3rem',
   width: '100%',
   maxWidth: 'calc(100vw - ((100vw - 1180px) / 2) )',
   marginLeft: 'auto',
+  cursor: 'grab',
 })
 
 export const Product = styled('div', {
@@ -48,6 +48,10 @@ export const Product = styled('div', {
         fontWeight: '700',
         color: '$light',
       },
+    },
+
+    img: {
+      objectFit: 'cover',
     },
   },
 

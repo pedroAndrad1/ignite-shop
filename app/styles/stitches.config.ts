@@ -22,5 +22,6 @@ export const { theme, styled, globalCss, getCssText } = createStitches({
   },
   media: {
     sm: '(max-width: 640px)',
+    m: '(max-width: 900px)',
   },
 })
