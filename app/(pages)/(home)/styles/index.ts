@@ -4,9 +4,8 @@ export const HomeContainer = styled('main', {
   display: 'flex',
   alignItems: 'center',
   width: '100%',
-  maxWidth: 'calc(100vw - ((100vw - 1180px) / 2) )',
-  marginLeft: 'auto',
-  cursor: 'grab',
+  // maxWidth: 'calc(100vw - ((100vw - 1180px) / 2) )',
+  // marginLeft: 'auto',
 })
 
 export const Product = styled('div', {
@@ -14,6 +13,9 @@ export const Product = styled('div', {
   position: 'relative',
   borderRadius: '8px',
   overflow: 'hidden',
+
+  display: 'grid',
+  justifyContent: 'center',
 
   footer: {
     position: 'absolute',
@@ -51,7 +53,7 @@ export const Product = styled('div', {
     },
 
     img: {
-      objectFit: 'cover',
+      maxWidth: '100%',
     },
   },
 
