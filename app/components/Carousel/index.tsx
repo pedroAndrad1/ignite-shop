@@ -69,7 +69,6 @@ export const Carousel = ({ children }: CarouselProps) => {
           ></CaretRight>
         </RightArrowContainer>
       ) : (
-        instanceRef.current?.track.details.slides.length &&
         currentSlide !==
           instanceRef.current.track.details.slides.length - 1 && (
           <RightArrowContainer onClick={scrollRight}>

@@ -10,7 +10,13 @@ export const Header = () => {
   return (
     <StyledHeader>
       <Link href="/">
-        <Image src="/logo.svg" alt="logo" width={130} height={50}></Image>
+        <Image
+          src="/logo.svg"
+          alt="logo"
+          width={130}
+          height={50}
+          priority
+        ></Image>
       </Link>
       <BagContainer href="/">
         <Bag size={24} color={theme.colors.icon.toString()} />
