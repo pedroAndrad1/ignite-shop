@@ -19,11 +19,20 @@ export const globalStyles = globalCss({
   'p, span': {
     color: '$text',
   },
+  'a, button': {
+    cursor: 'pointer',
+  },
   button: {
     border: 'none',
     width: 'auto',
-    background: 'transparent',
-    color: 'inherit',
+    background: '$light',
+    color: '$text',
     font: 'inherit',
+    padding: '1.25rem 2rem',
+    borderRadius: '0.5rem',
+
+    '&:hover': {
+      filter: 'brightness(0.7)',
+    },
   },
 })

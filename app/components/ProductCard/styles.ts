@@ -1,6 +1,6 @@
 import { styled } from '@/app/styles/stitches.config'
 
-export const Product = styled('div', {
+export const ProductCardContainer = styled('div', {
   background: '$gradientBackground',
   position: 'relative',
   borderRadius: '8px',

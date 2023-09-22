@@ -1,22 +1,24 @@
 'use client'
 
 import Image from 'next/image'
-import { BagContainer, Product } from './styles'
+import { BagContainer, ProductCardContainer } from './styles'
 import { Bag } from 'phosphor-react'
 import { theme } from '@/app/styles/stitches.config'
-export const ProductCard = () => {
+import { Product } from '@/app/interfaces'
+
+export const ProductCard = ({ image, name, price, id }: Product) => {
   return (
-    <Product>
-      <Image src={'/camisa1.svg'} height={401} width={401} alt="" />
+    <ProductCardContainer>
+      <Image src={image} height={401} width={401} alt={`camisa ${name}`} />
       <footer>
         <div>
-          <h2>Camiseta nome</h2>
-          <p>R$ 79,90</p>
+          <h2>{name}</h2>
+          <p>{price}</p>
         </div>
         <BagContainer>
           <Bag size={32} color={theme.colors.white.toString()} />
         </BagContainer>
       </footer>
-    </Product>
+    </ProductCardContainer>
   )
 }
