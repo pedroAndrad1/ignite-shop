@@ -1,4 +1,5 @@
 import { styled } from '@/app/styles/stitches.config'
+import Link from 'next/link'
 
 export const ProductCardContainer = styled('div', {
   background: '$gradientBackground',
@@ -57,7 +58,7 @@ export const ProductCardContainer = styled('div', {
   },
 })
 
-export const BagContainer = styled('button', {
+export const BagContainer = styled(Link, {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',

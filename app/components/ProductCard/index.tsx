@@ -15,7 +15,7 @@ export const ProductCard = ({ image, name, price, id }: Product) => {
           <h2>{name}</h2>
           <p>{price}</p>
         </div>
-        <BagContainer>
+        <BagContainer href={`produto/${id}`}>
           <Bag size={32} color={theme.colors.white.toString()} />
         </BagContainer>
       </footer>

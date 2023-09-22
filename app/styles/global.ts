@@ -35,4 +35,7 @@ export const globalStyles = globalCss({
       filter: 'brightness(0.7)',
     },
   },
+  img: {
+    objectFit: 'cover',
+  },
 })
