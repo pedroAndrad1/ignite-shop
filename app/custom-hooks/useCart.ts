@@ -2,7 +2,7 @@ import { useShoppingCart } from 'use-shopping-cart'
 import { Product } from '../interfaces'
 
 export const useCart = () => {
-  const { addItem } = useShoppingCart()
+  const { addItem, cartCount } = useShoppingCart()
   const addProductToChart = ({
     id,
     description,
@@ -23,5 +23,6 @@ export const useCart = () => {
 
   return {
     addProductToChart,
+    cartCount,
   }
 }

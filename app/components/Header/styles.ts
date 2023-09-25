@@ -1,5 +1,4 @@
 import { styled } from '@/app/styles/stitches.config'
-import Link from 'next/link'
 
 export const StyledHeader = styled('header', {
   display: 'flex',
@@ -17,15 +16,33 @@ export const StyledHeader = styled('header', {
   },
 })
 
-export const BagContainer = styled(Link, {
+export const BagContainer = styled('button', {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   borderRadius: '0.375rem',
   padding: '12px',
   background: '$elements',
+  position: 'relative',
 
   '&:hover': {
     filter: 'brightness(0.8)',
   },
+})
+
+export const CartCounter = styled('span', {
+  position: 'absolute',
+  right: -5,
+  top: -5,
+  width: '1.5rem',
+  height: '1.5rem',
+  borderRadius: 9999,
+  color: '$white',
+  background: '$principal',
+  border: '1px solid $background',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  fontWeight: '700',
+  fontSize: '0.875rem',
 })
