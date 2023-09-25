@@ -7,12 +7,12 @@ export const revalidate = 60 * 60 * 2
 
 export default async function Home() {
   const { getProducts } = useStripe()
-  const products = await getProducts()
+  const { data } = await getProducts()
 
   return (
     <HomeContainer>
       <Carousel>
-        {products.map((product) => (
+        {data.map((product) => (
           <ProductCard key={product.id} {...product} />
         ))}
       </Carousel>

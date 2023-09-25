@@ -2,19 +2,40 @@
 import { Product } from '../interfaces'
 
 export const useStripe = () => {
-  const getProducts = async (): Promise<Product[]> => {
-    return await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/products`, {
-      method: 'GET',
-    }).then((res) => res.json())
+  const handleResponse = async (res: Response) => await res.json()
+
+  const options = (
+    method = 'GET',
+    cacheRevalidateTime = 60 * 60 * 1,
+  ): RequestInit => {
+    return {
+      method,
+      next: {
+        revalidate: cacheRevalidateTime,
+      },
+    }
   }
 
-  const getProduct = async (productId: string): Promise<Product> => {
+  const getProducts = async (): Promise<{
+    data: Product[]
+    error?: string
+  }> => {
+    return await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/products`,
+      options(),
+    ).then(handleResponse)
+  }
+
+  const getProduct = async (
+    productId: string,
+  ): Promise<{
+    data: Product
+    error?: string
+  }> => {
     return await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/product/${productId}`,
-      {
-        method: 'GET',
-      },
-    ).then((res) => res.json())
+      options(),
+    ).then(handleResponse)
   }
 
   return {

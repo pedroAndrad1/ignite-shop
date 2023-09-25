@@ -75,3 +75,10 @@ export const ProductButtonSkeleton = styled('button', {
   animation: `${skeleton} 15s infinite linear`,
   marginTop: 'auto',
 })
+
+export const ErrorPageProdutoContainer = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  height: '50vh',
+})

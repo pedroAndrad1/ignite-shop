@@ -29,8 +29,18 @@ export async function GET(
       }).format((price.unit_amount as number) / 100),
       rawPrice: price.unit_amount as number,
     }
-    return NextResponse.json(product, { status: 200 })
+    return NextResponse.json(
+      {
+        data: product,
+      },
+      { status: 200 },
+    )
   } catch (err) {
-    return NextResponse.json({ err }, { status: 500 })
+    return NextResponse.json(
+      {
+        error: err,
+      },
+      { status: 500 },
+    )
   }
 }
