@@ -3,8 +3,7 @@ export interface Product {
   name: string
   description: string
   price: string
+  rawPrice: number // Preco em centavos
   image: string
-  currency?: string
-  price_id?: string
-  sku_id?: string
+  currency: string
 }
