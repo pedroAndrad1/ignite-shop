@@ -3,8 +3,6 @@ import { HomeContainer } from './styles'
 import { Carousel } from '@/app/components/Carousel'
 import { useStripe } from '@/app/custom-hooks/useStripe'
 
-export const revalidate = 60 * 60 * 2
-
 export default async function Home() {
   const { getProducts } = useStripe()
   const { data } = await getProducts()
