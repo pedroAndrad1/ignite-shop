@@ -11,7 +11,7 @@ export const globalStyles = globalCss({
     background: '$background',
     lineHeight: '160%',
     fontWeight: 400,
-    paddingBottom: '8.5rem',
+    paddingBottom: '3rem',
   },
   h1: {
     color: '$title',
@@ -37,5 +37,9 @@ export const globalStyles = globalCss({
   },
   img: {
     objectFit: 'cover',
+    maxWidth: '100%',
+  },
+  ul: {
+    listStyle: 'none',
   },
 })

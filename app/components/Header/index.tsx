@@ -6,12 +6,14 @@ import { Bag } from 'phosphor-react'
 import { theme } from '@/app/styles/stitches.config'
 import Link from 'next/link'
 import { useCart } from '@/app/custom-hooks/useCart'
+import { Cart } from '../Cart'
 
 export const Header = () => {
   const { cartCount } = useCart()
 
   return (
     <StyledHeader>
+      <Cart />
       <Link href="/">
         <Image
           src="/logo.svg"
