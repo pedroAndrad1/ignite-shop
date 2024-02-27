@@ -12,6 +12,10 @@ export const CartContainer = styled('aside', {
   justifyContent: 'space-between',
   padding: '5rem 2rem 2rem 2rem',
   zIndex: '1',
+
+  '@sm': {
+    width: '100%',
+  },
 })
 
 export const CloseContainer = styled('button', {
@@ -66,6 +70,21 @@ export const CartItem = styled('li', {
       padding: 0,
       background: 'none',
       textAlign: 'start',
+    },
+  },
+
+  '@xsm': {
+    gridTemplateColumns: '1fr',
+    gap: '1rem',
+    textAlign: 'center',
+    img: {
+      margin: '0 auto',
+    },
+
+    '> div': {
+      button: {
+        textAlign: 'center',
+      },
     },
   },
 })

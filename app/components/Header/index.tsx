@@ -10,7 +10,6 @@ import { Cart } from '../Cart'
 
 export const Header = () => {
   const { cartCount, handleCartClick } = useCart()
-  console.log(cartCount)
 
   return (
     <StyledHeader>

@@ -24,6 +24,7 @@ export const { theme, styled, globalCss, getCssText, keyframes } =
       },
     },
     media: {
+      xsm: '(max-width: 500px)',
       sm: '(max-width: 640px)',
       m: '(max-width: 900px)',
     },

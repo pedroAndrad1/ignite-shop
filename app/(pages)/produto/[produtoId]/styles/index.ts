@@ -42,6 +42,13 @@ export const ProductInfoContainer = styled('div', {
   button: {
     marginTop: 'auto',
   },
+
+  '@m': {
+    gridTemplateColumns: '1fr',
+    button: {
+      marginTop: '1rem',
+    },
+  },
 })
 
 export const ProductImageContainerSkeleton = styled('div', {
