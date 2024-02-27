@@ -5,7 +5,6 @@ import { getCssText } from './styles/stitches.config'
 import { Header } from './components/Header'
 import LoadUseShoppingCart from './components/LoadUseShoppingCart'
 import { ToastContainer } from 'react-toastify'
-import { CartContextProvider } from './contexts/CartContext/CartContext'
 
 const roboto = Roboto({
   weight: ['400', '700'],
@@ -35,10 +34,8 @@ export default function RootLayout({
       <body className={roboto.className}>
         <LoadUseShoppingCart>
           <ToastContainer />
-          <CartContextProvider>
-            <Header />
-            {children}
-          </CartContextProvider>
+          <Header />
+          {children}
         </LoadUseShoppingCart>
       </body>
     </html>

@@ -7,16 +7,20 @@ import {
   CloseContainer,
 } from './styles'
 import { X } from 'phosphor-react'
-import { useCartContext } from '@/app/contexts/CartContext'
+import { useCart } from '@/app/custom-hooks/useCart'
 
 export const Cart = () => {
-  const { showCart, toogleCart } = useCartContext()
+  const { cartDetails, shouldDisplayCart, handleCartClick } = useCart()
 
   return (
-    showCart && (
+    shouldDisplayCart && (
       <CartContainer>
         <CartList>
-          <CloseContainer onClick={() => toogleCart()}>
+          <CloseContainer
+            onClick={() => {
+              handleCartClick()
+            }}
+          >
             <X size={32} />
           </CloseContainer>
           <h2>Sacola de compras</h2>

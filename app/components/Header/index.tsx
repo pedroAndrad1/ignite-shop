@@ -7,11 +7,9 @@ import { theme } from '@/app/styles/stitches.config'
 import Link from 'next/link'
 import { useCart } from '@/app/custom-hooks/useCart'
 import { Cart } from '../Cart'
-import { useCartContext } from '@/app/contexts/CartContext'
 
 export const Header = () => {
-  const { cartCount } = useCart()
-  const { toogleCart } = useCartContext()
+  const { cartCount, handleCartClick } = useCart()
 
   return (
     <StyledHeader>
@@ -25,7 +23,7 @@ export const Header = () => {
           priority
         ></Image>
       </Link>
-      <BagContainer onClick={() => toogleCart()}>
+      <BagContainer onClick={() => handleCartClick()}>
         {cartCount && <CartCounter>{cartCount}</CartCounter>}
         <Bag size={24} color={theme.colors.icon.toString()} />
       </BagContainer>
