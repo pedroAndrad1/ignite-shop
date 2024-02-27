@@ -26,6 +26,8 @@ export const CartList = styled('ul', {
   display: 'grid',
   gridTemplateColumns: '1fr',
   gap: '2rem',
+  maxHeight: '300px',
+  overflowY: 'auto',
 
   h2: {
     fontSize: '$20',
@@ -45,6 +47,7 @@ export const CartItem = styled('li', {
 
   img: {
     borderRadius: 8,
+    background: '$gradientBackground',
   },
 
   '> div': {
@@ -90,4 +93,11 @@ export const CartResume = styled('div', {
       fontWeight: 'bold',
     },
   },
+})
+
+export const EmptyCart = styled('div', {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  height: '100%',
 })

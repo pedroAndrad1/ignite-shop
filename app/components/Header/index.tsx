@@ -10,6 +10,7 @@ import { Cart } from '../Cart'
 
 export const Header = () => {
   const { cartCount, handleCartClick } = useCart()
+  console.log(cartCount)
 
   return (
     <StyledHeader>
@@ -24,7 +25,11 @@ export const Header = () => {
         ></Image>
       </Link>
       <BagContainer onClick={() => handleCartClick()}>
-        {cartCount && <CartCounter>{cartCount}</CartCounter>}
+        {cartCount && cartCount > 0 ? (
+          <CartCounter>{cartCount}</CartCounter>
+        ) : (
+          <></>
+        )}
         <Bag size={24} color={theme.colors.icon.toString()} />
       </BagContainer>
     </StyledHeader>

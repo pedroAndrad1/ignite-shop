@@ -8,6 +8,7 @@ export const useCart = () => {
     cartDetails,
     handleCartClick,
     shouldDisplayCart,
+    removeItem,
   } = useShoppingCart()
   const addProductToChart = ({
     id,
@@ -33,5 +34,6 @@ export const useCart = () => {
     cartDetails,
     handleCartClick,
     shouldDisplayCart,
+    removeItem,
   }
 }
