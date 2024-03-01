@@ -44,7 +44,7 @@ export const ProductInfoContainer = styled('div', {
   },
 
   '@m': {
-    gridTemplateColumns: '1fr',
+    padding: '1rem',
     button: {
       marginTop: '1rem',
     },

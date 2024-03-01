@@ -14,7 +14,7 @@ export const { theme, styled, globalCss, getCssText, keyframes } =
         white: '#FFFFFF',
         gradientBackground: 'linear-gradient(180deg, #1EA483 0%, #7465D4 100%)',
         gradientSkeleton:
-          'linear-gradient(90deg, #E1E1E6 0%, #C4C4CC 97%, #E1E1E6 100%)',
+          'linear-gradient(90deg, #202024 0%, #121214 97%, #202024 100%)',
       },
       fontSizes: {
         '18': '1.125rem',
