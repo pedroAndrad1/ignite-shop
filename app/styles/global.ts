@@ -34,6 +34,11 @@ export const globalStyles = globalCss({
     '&:hover': {
       filter: 'brightness(0.7)',
     },
+
+    '&:disabled': {
+      filter: 'brightness(0.5)',
+      cursor: 'not-allowed',
+    },
   },
   img: {
     objectFit: 'cover',

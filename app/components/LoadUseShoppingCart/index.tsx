@@ -9,11 +9,8 @@ export default function LoadUseShoppingCart({
 }) {
   return (
     <CartProvider
-      mode="payment"
-      cartMode="client-only"
+      cartMode="checkout-session"
       stripe={process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY as string}
-      successUrl="stripe.com"
-      cancelUrl="twitter.com/dayhaysoos"
       currency="BRL"
       shouldPersist={true}
     >

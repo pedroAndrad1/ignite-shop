@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable camelcase */
-import { Product } from '../interfaces'
+import { CartEntry } from 'use-shopping-cart/core'
+import { CreateCheckoutResponse, Product } from '../interfaces'
 
 export const useStripe = () => {
   const handleResponse = async (res: Response) => await res.json()
@@ -7,12 +9,14 @@ export const useStripe = () => {
   const options = (
     method = 'GET',
     cacheRevalidateTime = 60 * 60 * 1,
+    body?: any,
   ): RequestInit => {
     return {
       method,
       next: {
         revalidate: cacheRevalidateTime,
       },
+      body: JSON.stringify(body),
     }
   }
 
@@ -38,8 +42,23 @@ export const useStripe = () => {
     ).then(handleResponse)
   }
 
+  const createCheckout = async (
+    products: CartEntry[],
+  ): Promise<{
+    data: CreateCheckoutResponse
+    error?: string
+  }> => {
+    console.log(products)
+
+    return await fetch(
+      `${process.env.NEXT_PUBLIC_BASE_URL}/api/checkout`,
+      options('POST', 60 * 60 * 1, products),
+    ).then(handleResponse)
+  }
+
   return {
     getProducts,
     getProduct,
+    createCheckout,
   }
 }

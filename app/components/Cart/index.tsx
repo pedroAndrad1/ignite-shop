@@ -5,15 +5,20 @@ import {
   CartList,
   CartResume,
   CloseContainer,
-  EmptyCart,
 } from './styles'
 import { X } from 'phosphor-react'
 import { useCart } from '@/app/custom-hooks/useCart'
+import { useStripe } from '@/app/custom-hooks/useStripe'
+import { CartEntry } from 'use-shopping-cart/core'
+import useToast from '@/app/custom-hooks/useToast'
+import { useState } from 'react'
 
 export const Cart = () => {
   const { cartDetails, shouldDisplayCart, handleCartClick, removeItem } =
     useCart()
-
+  const { createCheckout } = useStripe()
+  const { error } = useToast()
+  const [loading, setLoading] = useState(false)
   const calcQuantidade = (): number => {
     if (!cartDetails) return 0
 
@@ -34,6 +39,23 @@ export const Cart = () => {
       style: 'currency',
       currency: 'BRL',
     }).format(valorTotal)
+  }
+
+  const mountCheckout = () => {
+    if (!cartDetails) throw new Error('Não há objeto de carrinho cardDetails!')
+
+    setLoading(true)
+    const products: CartEntry[] = []
+    const keys = Object.keys(cartDetails)
+    keys.forEach((key) => products.push(cartDetails[key]))
+
+    createCheckout(products)
+      .then((res) => (window.location.href = res.data.url))
+      .catch(() =>
+        error(
+          'Ocorreu um erro ao processar a solicitação. Por favor, tente novamente mais tarde',
+        ),
+      )
   }
 
   return (
@@ -77,7 +99,14 @@ export const Cart = () => {
               <p>{calcValorTotal()}</p>
             </li>
           </ul>
-          <button>Finalizar compra</button>
+          <button
+            disabled={
+              (cartDetails && Object.keys(cartDetails).length === 0) || loading
+            }
+            onClick={mountCheckout}
+          >
+            Finalizar compra
+          </button>
         </CartResume>
       </CartContainer>
     )

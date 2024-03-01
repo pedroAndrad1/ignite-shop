@@ -28,6 +28,7 @@ export async function GET(
         currency: 'BRL',
       }).format((price.unit_amount as number) / 100),
       rawPrice: price.unit_amount as number,
+      defaultPriceId: price.id,
     }
     return NextResponse.json(
       {

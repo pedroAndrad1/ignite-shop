@@ -38,6 +38,7 @@ export default function PageProduto({
     name: '',
     price: '',
     rawPrice: 0,
+    defaultPriceId: '',
   })
 
   const handleChart = () => {
