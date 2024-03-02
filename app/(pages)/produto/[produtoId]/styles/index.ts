@@ -89,3 +89,20 @@ export const ErrorPageProdutoContainer = styled('div', {
   justifyContent: 'center',
   height: '50vh',
 })
+
+export const ContadorContainer = styled('div', {
+  display: 'flex',
+  gap: '1rem',
+  marginTop: '1rem',
+
+  button: {
+    fontSize: '1rem',
+    color: '$principal',
+    padding: 0,
+    background: 'none',
+    textAlign: 'start',
+  },
+  'span, button': {
+    margin: 0,
+  },
+})

@@ -4,24 +4,32 @@ import { Product } from '../interfaces'
 export const useCart = () => {
   const { addItem } = useShoppingCart()
 
-  const addProductToChart = ({
-    id,
-    description,
-    image,
-    name,
-    currency,
-    rawPrice,
-    defaultPriceId,
-  }: Product) => {
-    addItem({
+  const addProductToChart = (
+    {
       id,
       description,
-      name,
       image,
+      name,
       currency,
-      price: rawPrice,
-      price_id: defaultPriceId,
-    })
+      rawPrice,
+      defaultPriceId,
+    }: Product,
+    count = 1,
+  ) => {
+    addItem(
+      {
+        id,
+        description,
+        name,
+        image,
+        currency,
+        price: rawPrice,
+        price_id: defaultPriceId,
+      },
+      {
+        count,
+      },
+    )
   }
 
   return {
