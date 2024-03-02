@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
 
   try {
     const session = await stripe.checkout.sessions.create({
-      success_url: 'http://localhost:3000',
+      success_url: 'http://localhost:3000/compra-efetuada',
       cancel_url: 'http://localhost:3000',
       line_items,
       mode: 'payment',
