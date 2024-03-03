@@ -48,8 +48,6 @@ export const useStripe = () => {
     data: CreateCheckoutResponse
     error?: string
   }> => {
-    console.log(products)
-
     return await fetch(
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/checkout`,
       options('POST', 60 * 60 * 1, products),
