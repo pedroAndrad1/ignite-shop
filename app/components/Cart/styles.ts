@@ -41,7 +41,7 @@ export const CartList = styled('ul', {
 
 export const CartItem = styled('li', {
   display: 'grid',
-  gridTemplateColumns: '0.3fr 0.7fr',
+  gridTemplateColumns: '0.3fr 0.4fr 0.3fr',
 
   h3: {
     fontSize: '$18',
@@ -54,25 +54,6 @@ export const CartItem = styled('li', {
     background: '$gradientBackground',
   },
 
-  '> div': {
-    display: 'grid',
-    gridTemplateColumns: '1fr',
-
-    span: {
-      fontSize: '$18',
-      color: '$title',
-      fontWeight: 'bold',
-    },
-
-    button: {
-      fontSize: '1rem',
-      color: '$principal',
-      padding: 0,
-      background: 'none',
-      textAlign: 'start',
-    },
-  },
-
   '@xsm': {
     gridTemplateColumns: '1fr',
     gap: '1rem',
@@ -81,10 +62,32 @@ export const CartItem = styled('li', {
       margin: '0 auto',
     },
 
-    '> div': {
-      button: {
-        textAlign: 'center',
-      },
+    '&:last-child': {
+      marginBottom: '2rem',
+    },
+  },
+})
+
+export const CartItemInfo = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+
+  span: {
+    fontSize: '$18',
+    color: '$title',
+    fontWeight: 'bold',
+  },
+
+  button: {
+    fontSize: '1rem',
+    color: '$principal',
+    padding: 0,
+    background: 'none',
+    textAlign: 'start',
+  },
+  '@xsm': {
+    button: {
+      textAlign: 'center',
     },
   },
 })
@@ -119,4 +122,30 @@ export const EmptyCart = styled('div', {
   alignItems: 'center',
   justifyContent: 'center',
   height: '100%',
+})
+
+export const CartItemContadorContainer = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+
+  span: {
+    textAlign: 'center',
+    padding: 0,
+  },
+
+  button: {
+    fontSize: '1rem',
+    color: '$principal',
+    padding: 0,
+    background: 'none',
+    display: 'flex',
+    justifyContent: 'center',
+  },
+
+  '@sm': {
+    flexDirection: 'row-reverse',
+    justifyContent: 'center',
+    gap: '1rem',
+  },
 })

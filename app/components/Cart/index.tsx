@@ -2,11 +2,13 @@ import Image from 'next/image'
 import {
   CartContainer,
   CartItem,
+  CartItemContadorContainer,
+  CartItemInfo,
   CartList,
   CartResume,
   CloseContainer,
 } from './styles'
-import { X } from 'phosphor-react'
+import { MinusCircle, PlusCircle, X } from 'phosphor-react'
 import { useCart } from '@/app/custom-hooks/useCart'
 import { useStripe } from '@/app/custom-hooks/useStripe'
 import { CartEntry } from 'use-shopping-cart/core'
@@ -14,8 +16,13 @@ import useToast from '@/app/custom-hooks/useToast'
 import { useState } from 'react'
 
 export const Cart = () => {
-  const { cartDetails, shouldDisplayCart, handleCartClick, removeItem } =
-    useCart()
+  const {
+    cartDetails,
+    shouldDisplayCart,
+    handleCartClick,
+    removeItem,
+    setItemQuantity,
+  } = useCart()
   const { createCheckout } = useStripe()
   const { error } = useToast()
   const [loading, setLoading] = useState(false)
@@ -58,6 +65,12 @@ export const Cart = () => {
       )
   }
 
+  const increaseItemQuantity = (itemId: string, quantity: number) =>
+    setItemQuantity(itemId, quantity + 1)
+
+  const decreaseItemQuantity = (itemId: string, quantity: number) =>
+    setItemQuantity(itemId, quantity - 1)
+
   return (
     shouldDisplayCart && (
       <CartContainer>
@@ -76,14 +89,34 @@ export const Cart = () => {
                     height={93}
                     alt="alt"
                   />
-                  <div>
+                  <CartItemInfo>
                     <h3>{cartDetails[key].name}</h3>
-                    <span>
-                      {cartDetails[key].formattedValue} x (
-                      {cartDetails[key].quantity})
-                    </span>
+                    <span>{cartDetails[key].formattedValue}</span>
                     <button onClick={() => removeItem(key)}>Remover</button>
-                  </div>
+                  </CartItemInfo>
+                  <CartItemContadorContainer>
+                    <button
+                      onClick={() =>
+                        increaseItemQuantity(
+                          cartDetails[key].id,
+                          cartDetails[key].quantity,
+                        )
+                      }
+                    >
+                      <PlusCircle size={32} />
+                    </button>
+                    <span>{cartDetails[key].quantity}</span>
+                    <button
+                      onClick={() =>
+                        decreaseItemQuantity(
+                          cartDetails[key].id,
+                          cartDetails[key].quantity,
+                        )
+                      }
+                    >
+                      <MinusCircle size={32}></MinusCircle>
+                    </button>
+                  </CartItemContadorContainer>
                 </CartItem>
               )
             })}
